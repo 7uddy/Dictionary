@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Dictionary.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Dictionary.MVVM.ViewModels
 {
@@ -10,6 +12,7 @@ namespace Dictionary.MVVM.ViewModels
     {
         private string _wordName;
         private string _wordMeaning;
+
 
         public string WordName
         {
@@ -30,5 +33,12 @@ namespace Dictionary.MVVM.ViewModels
                 OnPropertyChanged(nameof(WordMeaning));
             }
         }
+        public ICommand Navigate { get; }
+
+        public WordViewModel(Navigation navigateCommand)
+        {
+            Navigate = new NavigateCommand(navigateCommand);
+        }
+
     }
 }

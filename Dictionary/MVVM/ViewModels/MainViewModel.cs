@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace Dictionary.MVVM.ViewModels
 {
-    internal class MainViewModel : ViewModelBase
+    public class MainViewModel : ViewModelBase
     {
-        public ViewModelBase CurrentViewModel { get; }
-        public MainViewModel()
+        private readonly Navigation _navigation;
+        public ViewModelBase CurrentViewModel => _navigation.CurrentViewModel;
+        public MainViewModel(Navigation navigation)
         {
-            CurrentViewModel = new UserViewModel();
+            _navigation = navigation;
         }
+   
     }
 }

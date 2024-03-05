@@ -14,7 +14,7 @@ namespace Dictionary.Commands
 {
     public class LoginCommand : CommandBase
     {
-        private readonly UserViewModel _userViewModel;
+        private readonly AdminViewModel _userViewModel;
 
         private List<User> users = new List<User>();
         public override void Execute(object parameter)
@@ -38,7 +38,7 @@ namespace Dictionary.Commands
                     base.CanExecute(parameter);
         }
 
-        public LoginCommand(UserViewModel userViewModel)
+        public LoginCommand(AdminViewModel userViewModel)
         {
             _userViewModel=userViewModel;
             _userViewModel.PropertyChanged += OnViewModelPropertyChanged;
@@ -60,8 +60,8 @@ namespace Dictionary.Commands
         }
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-           if(e.PropertyName==nameof(UserViewModel.Username)||
-                             e.PropertyName==nameof(UserViewModel.Password))
+           if(e.PropertyName==nameof(AdminViewModel.Username)||
+                             e.PropertyName==nameof(AdminViewModel.Password))
             {
                OnCanExecuteChanged();
            }

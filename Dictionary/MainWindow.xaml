@@ -4,11 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dictionary" xmlns:views="clr-namespace:Dictionary.MVVM.Views"
+        xmlns:vms="clr-namespace:Dictionary.MVVM.ViewModels"
         mc:Ignorable="d"
         Title="Dictionary" 
         Height="450" Width="800"
         FontSize="14">
     <Grid Margin="20 20" MaxWidth="600">
-        <views:AdminView DataContext="{Binding CurrentViewModel}"/>
+        <Grid.Resources>
+            <DataTemplate DataType="{x:Type vms:WordViewModel}">
+                <views:DictionaryView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type vms:AdminViewModel}">
+                <views:AdminView/>
+            </DataTemplate>
+            
+        </Grid.Resources>
+        <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>
 </Window>

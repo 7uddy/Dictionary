@@ -7,6 +7,9 @@ namespace Dictionary.Models
         private string Username { get; set; }
         private string Password { get; set; }
 
+        public User()
+        {
+        }
         public User(string username, string password)
         {
             if (string.IsNullOrEmpty(username))

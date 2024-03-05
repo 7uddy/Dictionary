@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace Dictionary.MVVM.ViewModels
 {
-    public class UserViewModel : ViewModelBase
+    public class AdminViewModel : ViewModelBase
     {
         private string _username;
         private string _password;
@@ -35,7 +35,7 @@ namespace Dictionary.MVVM.ViewModels
         }
         public ICommand LoginCommand { get; set; }
  //     public ICommand RegisterCommand { get; set; }
-        public UserViewModel()
+        public AdminViewModel(User user)
         {
             LoginCommand = new LoginCommand(this);
         }

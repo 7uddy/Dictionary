@@ -71,6 +71,7 @@
     </Compile>
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\LoginCommand.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -88,7 +89,7 @@
     <Compile Include="MVVM\Models\User.cs" />
     <Compile Include="MVVM\Models\Word.cs" />
     <Compile Include="MVVM\ViewModels\MainViewModel.cs" />
-    <Compile Include="MVVM\ViewModels\UserViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\AdminViewModel.cs" />
     <Compile Include="MVVM\ViewModels\ViewModelBase.cs" />
     <Compile Include="MVVM\ViewModels\WordViewModel.cs" />
     <Compile Include="MVVM\Views\AdminView.xaml.cs">
@@ -97,6 +98,7 @@
     <Compile Include="MVVM\Views\DictionaryView.xaml.cs">
       <DependentUpon>DictionaryView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Navigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
