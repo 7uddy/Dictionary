@@ -10,13 +10,15 @@ namespace Dictionary.Commands
     public class NavigateCommand:CommandBase
     {
         private readonly Navigation _navigation;
-        public NavigateCommand(Navigation navigation)
+        private readonly Func<ViewModelBase> _createViewModel;
+        public NavigateCommand(Navigation navigation, Func<ViewModelBase> createViewModel)
         {
             _navigation = navigation;
+            _createViewModel = createViewModel;
         }
         public override void Execute(object parameter)
         {
-            _navigation.CurrentViewModel = new AdminViewModel(new Models.User());
+            _navigation.CurrentViewModel = _createViewModel();
         }
     }
 }

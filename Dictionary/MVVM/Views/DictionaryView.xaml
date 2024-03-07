@@ -11,12 +11,12 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        
+
         <Grid Grid.Column="1" Margin="0 30 0 0">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
@@ -47,19 +47,17 @@
                 <Button Content="Admin" 
                 VerticalAlignment="Bottom"
                 Height="40"
-                Command="{Binding Navigate}"/>
+                Command="{Binding NavigateToAdmin}"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Button Content="Dictionary" 
-    VerticalAlignment="Center"
-    Height="40"
-    Command="{Binding Navigate}"/>
+            VerticalAlignment="Center"
+            Height="40"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Button Content="Game" 
-    VerticalAlignment="Top"
-    Height="40"
-    Command="{Binding Navigate}"/>
+            VerticalAlignment="Top"
+            Height="40"/>
             </Grid>
         </Grid>
     </Grid>

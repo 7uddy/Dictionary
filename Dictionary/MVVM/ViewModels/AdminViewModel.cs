@@ -35,9 +35,12 @@ namespace Dictionary.MVVM.ViewModels
         }
         public ICommand LoginCommand { get; set; }
  //     public ICommand RegisterCommand { get; set; }
-        public AdminViewModel(User user)
+        
+        public ICommand NavigateToDictionary { get; }
+        public AdminViewModel(User user,Navigation navigateCommand,Func<WordViewModel> createWordViewModel)
         {
             LoginCommand = new LoginCommand(this);
+            NavigateToDictionary = new NavigateCommand(navigateCommand,createWordViewModel);
         }
     }
 }

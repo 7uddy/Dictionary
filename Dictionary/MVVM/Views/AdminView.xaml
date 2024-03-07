@@ -67,20 +67,18 @@
             <Grid Grid.Row="0">
                 <Button Content="Admin" 
             VerticalAlignment="Bottom"
-            Height="40"
-            Command="{Binding Navigate}"/>
+            Height="40"/>
             </Grid>
             <Grid Grid.Row="1">
                 <Button Content="Dictionary" 
-VerticalAlignment="Center"
-Height="40"
-Command="{Binding Navigate}"/>
+            VerticalAlignment="Center"
+            Height="40"
+            Command="{Binding NavigateToDictionary}"/>
             </Grid>
             <Grid Grid.Row="2">
                 <Button Content="Game" 
-VerticalAlignment="Top"
-Height="40"
-Command="{Binding Navigate}"/>
+            VerticalAlignment="Top"
+            Height="40"/>
             </Grid>
         </Grid>
     </Grid>

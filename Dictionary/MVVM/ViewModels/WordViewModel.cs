@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace Dictionary.MVVM.ViewModels
 {
-    internal class WordViewModel : ViewModelBase
+    public class WordViewModel : ViewModelBase
     {
         private string _wordName;
         private string _wordMeaning;
@@ -33,11 +33,12 @@ namespace Dictionary.MVVM.ViewModels
                 OnPropertyChanged(nameof(WordMeaning));
             }
         }
-        public ICommand Navigate { get; }
+        public ICommand NavigateToAdmin { get; }
 
-        public WordViewModel(Navigation navigateCommand)
+        public WordViewModel(Navigation navigateCommand,Func<AdminViewModel> createAdminViewModel)
         {
-            Navigate = new NavigateCommand(navigateCommand);
+            NavigateToAdmin = new NavigateCommand(navigateCommand, createAdminViewModel);
+
         }
 
     }
