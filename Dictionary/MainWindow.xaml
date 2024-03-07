@@ -8,8 +8,15 @@
         mc:Ignorable="d"
         Title="Dictionary" 
         Height="450" Width="800"
-        FontSize="14">
-    <Grid Margin="20 20" MaxWidth="600">
+        FontSize="14"
+        MinWidth="800"
+        MinHeight="450"
+        ResizeMode="CanResizeWithGrip"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow"
+            Background="PaleGoldenrod"
+        >
+    <Grid MinWidth="800">
         <Grid.Resources>
             <DataTemplate DataType="{x:Type vms:WordViewModel}">
                 <views:DictionaryView/>

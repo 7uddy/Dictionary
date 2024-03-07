@@ -7,37 +7,60 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid Grid.Column="1" Margin="0 30 0 0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="auto"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
-            <TextBlock Grid.Column="0" 
+                <TextBlock Grid.Column="0" 
                        Text="Dictionary" 
                        Style="{StaticResource Header}"
                        HorizontalAlignment="Left"
                        Margin="0 0 20 0"/>
-            <TextBox Grid.Column="1" 
+                <TextBox Grid.Column="1" 
                      Text="Search"
                      VerticalAlignment="Center"
                      Margin="0 0 20 0"/>
-        </Grid>
-            <Grid Grid.Row="1" Margin="0 50 0 0">
-            <Button Content="Admin" 
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Center"
-                        Margin="0 0 20 0"
-                        Command="{Binding Navigate}"/>
+            </Grid>
         </Grid>
 
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-
+            <Grid Grid.Row="0">
+                <Button Content="Admin" 
+                VerticalAlignment="Bottom"
+                Height="40"
+                Command="{Binding Navigate}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Content="Dictionary" 
+    VerticalAlignment="Center"
+    Height="40"
+    Command="{Binding Navigate}"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Content="Game" 
+    VerticalAlignment="Top"
+    Height="40"
+    Command="{Binding Navigate}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>
