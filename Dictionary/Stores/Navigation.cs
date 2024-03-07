@@ -16,7 +16,13 @@ namespace Dictionary
             set
             {
                 _currentViewModel = value;
+                OnCurrentViewModelChanged();
             }
+        }
+        public event Action CurrentViewModelChanged;
+        public void OnCurrentViewModelChanged()
+        {
+            CurrentViewModelChanged?.Invoke();
         }
     }
 }

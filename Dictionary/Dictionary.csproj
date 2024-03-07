@@ -98,7 +98,7 @@
     <Compile Include="MVVM\Views\DictionaryView.xaml.cs">
       <DependentUpon>DictionaryView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Navigation.cs" />
+    <Compile Include="Stores\Navigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
