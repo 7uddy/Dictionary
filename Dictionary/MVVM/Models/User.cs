@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 
 namespace Dictionary.Models
 {
@@ -9,7 +10,10 @@ namespace Dictionary.Models
 
         public User()
         {
+            Username=string.Empty;
+            Password=string.Empty;
         }
+        [JsonConstructor]
         public User(string username, string password)
         {
             if (string.IsNullOrEmpty(username))

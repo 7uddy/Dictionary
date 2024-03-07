@@ -19,8 +19,8 @@ namespace Dictionary.Commands
         private List<User> users = new List<User>();
         public override void Execute(object parameter)
         {
-           if(users.Capacity==0) ReadJsonFile();
-           User user = new User(_userViewModel.Username,_userViewModel.Password);
+            if (users.Capacity == 0) ReadJsonFile();
+            User user = new User(_userViewModel.Username, _userViewModel.Password);
             if (users.Contains(user))
             {
                 Console.WriteLine("Login successful");
@@ -33,14 +33,14 @@ namespace Dictionary.Commands
 
         public override bool CanExecute(object parameter)
         {
-            return  !string.IsNullOrEmpty(_userViewModel.Username)&&
-                    !string.IsNullOrEmpty(_userViewModel.Password)&&
+            return !string.IsNullOrEmpty(_userViewModel.Username) &&
+                    !string.IsNullOrEmpty(_userViewModel.Password) &&
                     base.CanExecute(parameter);
         }
 
         public LoginCommand(AdminViewModel userViewModel)
         {
-            _userViewModel=userViewModel;
+            _userViewModel = userViewModel;
             _userViewModel.PropertyChanged += OnViewModelPropertyChanged;
         }
 
@@ -50,8 +50,8 @@ namespace Dictionary.Commands
             string filePath = "users.json";
             if (File.Exists(filePath))
             {
-                User deserializedUser = JsonConvert.DeserializeObject<User>(File.ReadAllText(filePath));
-                users.Add(deserializedUser);
+                List<User> deserializedUsers = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(filePath));
+                users.AddRange(deserializedUsers);
             }
             else
             {
@@ -60,11 +60,11 @@ namespace Dictionary.Commands
         }
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-           if(e.PropertyName==nameof(AdminViewModel.Username)||
-                             e.PropertyName==nameof(AdminViewModel.Password))
+            if (e.PropertyName == nameof(AdminViewModel.Username) ||
+                              e.PropertyName == nameof(AdminViewModel.Password))
             {
-               OnCanExecuteChanged();
-           }
+                OnCanExecuteChanged();
+            }
         }
     }
 }

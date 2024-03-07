@@ -7,29 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
 
         <TextBlock Text="Admin View" 
-                   Grid.Row="0" 
+                   Grid.Column="1"
                    Style="{StaticResource Header}" 
                    HorizontalAlignment="Center" 
-                   VerticalAlignment="Center"/>
+                   VerticalAlignment="Top"/>
 
-        <Grid Grid.Row="1" Margin="0 50 0 0">
-
+        <Grid Grid.Column="1" Margin="0 30 0 0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <TextBlock Text="Username"
+                       Margin="0 100 0 0"
                        Grid.Row="0" 
                        FontSize="16"  
                        HorizontalAlignment="Center" 
@@ -40,43 +39,27 @@
                      Width="200"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"/>
-        </Grid>
 
-
-        <Grid Grid.Row="2" Margin="0 20 0 0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
             <TextBlock Text="Password" 
-                       Grid.Row="0" 
+                       Grid.Row="2" 
                        HorizontalAlignment="Center" 
                        VerticalAlignment="Center" 
                        FontSize="16"/>
-
-            <TextBox Grid.Row="1" 
+            <TextBox Grid.Row="3" 
                     Margin="0 5 0 0"
-                    Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}" 
+                    Text="{Binding Password}" 
                     Width="200"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>
-        </Grid>
 
             <Button Content="Login" 
-                    Grid.Row="3"
+                    Name="LoginButton"
+                    Grid.Row="4"
                     Width="100" 
                     Height="30" 
                     HorizontalAlignment="Center"
                     Margin="0 20 0 20"
                     Command="{Binding LoginCommand}"/>
-        
-            <!--<Button Content="Register" 
-                    Grid.Row="4"
-                    Width="100" 
-                    Height="30" 
-                    HorizontalAlignment="Center"
-                    Command="{Binding RegisterCommand}"
-                    Visibility="Hidden"/>-->
-        
+        </Grid>
     </Grid>
 </UserControl>
