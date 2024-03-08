@@ -32,7 +32,7 @@
                 <ComboBox Grid.Column="1"
                     Width="300" 
                     IsEditable="True" 
-                    ItemsSource="{Binding Names}" 
+                    ItemsSource="{Binding Words}" 
                     IsTextSearchEnabled="True" 
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"/>

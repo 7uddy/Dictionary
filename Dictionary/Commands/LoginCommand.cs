@@ -50,8 +50,7 @@ namespace Dictionary.Commands
             string filePath = @"Resources\users.json";
             if (File.Exists(filePath))
             {
-                List<User> deserializedUsers = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(filePath));
-                users.AddRange(deserializedUsers);
+                users = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(filePath));
             }
             else
             {
