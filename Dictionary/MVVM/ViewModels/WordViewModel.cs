@@ -74,7 +74,6 @@ namespace Dictionary.MVVM.ViewModels
                 Console.WriteLine("File does not exist.");
             }
         }
-
     }
 }
 

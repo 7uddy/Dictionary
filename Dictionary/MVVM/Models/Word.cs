@@ -28,5 +28,9 @@ namespace Dictionary.MVVM.Models
             WordName = wordName;
             WordMeaning = wordMeaning;
         }
+        public override string ToString()
+        {
+            return WordName;
+        }
     }
 }
