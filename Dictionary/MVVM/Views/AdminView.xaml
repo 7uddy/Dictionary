@@ -44,7 +44,7 @@
                        VerticalAlignment="Bottom" 
                        FontSize="16"/>
             <TextBox Grid.Row="3" 
-                    Text="{Binding Password}" 
+                    Text="{Binding Password,UpdateSourceTrigger=PropertyChanged}" 
                     Width="200"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"/>

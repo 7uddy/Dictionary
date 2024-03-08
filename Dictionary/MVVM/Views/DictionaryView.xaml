@@ -29,10 +29,15 @@
                        Style="{StaticResource Header}"
                        HorizontalAlignment="Left"
                        Margin="0 0 20 0"/>
-                <TextBox Grid.Column="1" 
-                     Text="Search"
-                     VerticalAlignment="Center"
-                     Margin="0 0 20 0"/>
+                <ComboBox Grid.Column="1"
+                    Width="300" 
+                    IsEditable="True" 
+                    ItemsSource="{Binding Names}" 
+                    IsTextSearchEnabled="True" 
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"/>
+                    
+
             </Grid>
         </Grid>
 

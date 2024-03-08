@@ -34,8 +34,8 @@ namespace Dictionary.Commands
         public override bool CanExecute(object parameter)
         {
             return !string.IsNullOrEmpty(_userViewModel.Username) &&
-                    !string.IsNullOrEmpty(_userViewModel.Password) &&
-                    base.CanExecute(parameter);
+                   !string.IsNullOrEmpty(_userViewModel.Password) &&
+                   base.CanExecute(parameter);
         }
 
         public LoginCommand(AdminViewModel userViewModel)
@@ -47,7 +47,7 @@ namespace Dictionary.Commands
 
         public void ReadJsonFile()
         {
-            string filePath = "users.json";
+            string filePath = @"Resources\users.json";
             if (File.Exists(filePath))
             {
                 List<User> deserializedUsers = JsonConvert.DeserializeObject<List<User>>(File.ReadAllText(filePath));

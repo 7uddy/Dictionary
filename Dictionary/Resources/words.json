@@ -1,0 +1,218 @@
+[
+  {
+    "WordName": "Apple",
+    "WordMeaning": "A round fruit with red or green skin and a whitish interior."
+  },
+  {
+    "WordName": "Book",
+    "WordMeaning": "A set of written or printed pages, usually bound with a protective cover."
+  },
+  {
+    "WordName": "Computer",
+    "WordMeaning": "An electronic device for storing and processing data."
+  },
+  {
+    "WordName": "Dog",
+    "WordMeaning": "A domesticated carnivorous mammal, typically loyal and friendly."
+  },
+  {
+    "WordName": "Elephant",
+    "WordMeaning": "A large herbivorous mammal with a long trunk and tusks."
+  },
+  {
+    "WordName": "Flower",
+    "WordMeaning": "The reproductive structure of a flowering plant, typically colorful and fragrant."
+  },
+  {
+    "WordName": "Gravity",
+    "WordMeaning": "The force that attracts objects toward the center of the Earth."
+  },
+  {
+    "WordName": "Harmony",
+    "WordMeaning": "The combination of different musical notes played or sung simultaneously."
+  },
+  {
+    "WordName": "Internet",
+    "WordMeaning": "A global computer network providing information and communication."
+  },
+  {
+    "WordName": "Jazz",
+    "WordMeaning": "A genre of music characterized by improvisation and syncopation."
+  },
+  {
+    "WordName": "Kangaroo",
+    "WordMeaning": "A large herbivorous marsupial with a long tail and powerful hind legs."
+  },
+  {
+    "WordName": "Lighthouse",
+    "WordMeaning": "A tower with a bright light to guide or warn ships at sea."
+  },
+  {
+    "WordName": "Mountain",
+    "WordMeaning": "A large landform rising prominently above its surroundings."
+  },
+  {
+    "WordName": "Nebula",
+    "WordMeaning": "A vast cloud of gas and dust in outer space."
+  },
+  {
+    "WordName": "Ocean",
+    "WordMeaning": "A large expanse of saltwater, covering much of the Earth's surface."
+  },
+  {
+    "WordName": "Piano",
+    "WordMeaning": "A musical instrument with keys that produce sound when pressed."
+  },
+  {
+    "WordName": "Quasar",
+    "WordMeaning": "An extremely luminous active galactic nucleus."
+  },
+  {
+    "WordName": "Rainbow",
+    "WordMeaning": "A meteorological phenomenon consisting of multicolored light."
+  },
+  {
+    "WordName": "Sunflower",
+    "WordMeaning": "A tall plant with large yellow flowers and edible seeds."
+  },
+  {
+    "WordName": "Telescope",
+    "WordMeaning": "An optical instrument for viewing distant objects in space."
+  },
+  {
+    "WordName": "Umbrella",
+    "WordMeaning": "A device used for protection against rain or sunlight."
+  },
+  {
+    "WordName": "Violin",
+    "WordMeaning": "A stringed musical instrument played with a bow."
+  },
+  {
+    "WordName": "Waterfall",
+    "WordMeaning": "A cascade of water falling from a height."
+  },
+  {
+    "WordName": "Xylophone",
+    "WordMeaning": "A musical instrument played by striking wooden bars with mallets."
+  },
+  {
+    "WordName": "Yellowstone",
+    "WordMeaning": "A national park in the United States known for its geothermal features."
+  },
+  {
+    "WordName": "Zephyr",
+    "WordMeaning": "A gentle, mild breeze."
+  },
+  {
+    "WordName": "Orchestra",
+    "WordMeaning": "A large ensemble of musicians playing classical music."
+  },
+  {
+    "WordName": "Galaxy",
+    "WordMeaning": "A system of millions or billions of stars, together with gas and dust."
+  },
+  {
+    "WordName": "Zenith",
+    "WordMeaning": "The point in the sky or celestial sphere directly above an observer."
+  },
+  {
+    "WordName": "Quintessence",
+    "WordMeaning": "The most perfect or typical example of a quality or class."
+  },
+  {
+    "WordName": "Spectacle",
+    "WordMeaning": "A visually striking performance or display."
+  },
+  {
+    "WordName": "Ubiquitous",
+    "WordMeaning": "Present, appearing, or found everywhere."
+  },
+  {
+    "WordName": "Vanilla",
+    "WordMeaning": "A flavoring derived from the beans of the vanilla orchid."
+  },
+  {
+    "WordName": "Whimsical",
+    "WordMeaning": "Playfully quaint or fanciful, especially in an appealing and amusing way."
+  },
+  {
+    "WordName": "Xenophobic",
+    "WordMeaning": "Having a dislike of or prejudice against people from other countries."
+  },
+  {
+    "WordName": "Yearn",
+    "WordMeaning": "Have an intense feeling of longing for something."
+  },
+  {
+    "WordName": "Zest",
+    "WordMeaning": "Great enthusiasm and energy."
+  },
+  {
+    "WordName": "Quizzical",
+    "WordMeaning": "Expressing puzzlement, curiosity, or disbelief."
+  },
+  {
+    "WordName": "Ineffable",
+    "WordMeaning": "Too great or extreme to be expressed or described in words."
+  },
+  {
+    "WordName": "Lucid",
+    "WordMeaning": "Clear and easy to understand."
+  },
+  {
+    "WordName": "Mellifluous",
+    "WordMeaning": "Sweet or musical; pleasant to hear."
+  },
+  {
+    "WordName": "Nefarious",
+    "WordMeaning": "Wicked, villainous, or criminal."
+  },
+  {
+    "WordName": "Opulent",
+    "WordMeaning": "Characterized by luxury and wealth."
+  },
+  {
+    "WordName": "Pernicious",
+    "WordMeaning": "Having a harmful effect, especially in a gradual or subtle way."
+  },
+  {
+    "WordName": "Quotidian",
+    "WordMeaning": "Occurring every day; daily."
+  },
+  {
+    "WordName": "Reticent",
+    "WordMeaning": "Not revealing one's thoughts or feelings readily."
+  },
+  {
+    "WordName": "Serendipity",
+    "WordMeaning": "The occurrence and development of events by chance in a happy or beneficial way."
+  },
+  {
+    "WordName": "Trepidation",
+    "WordMeaning": "A feeling of fear or agitation about something that may happen."
+  },
+  {
+    "WordName": "Ubiquitous",
+    "WordMeaning": "Present, appearing, or found everywhere."
+  },
+  {
+    "WordName": "Voracious",
+    "WordMeaning": "Wanting or devouring great quantities of food."
+  },
+  {
+    "WordName": "Wanderlust",
+    "WordMeaning": "A strong desire to travel and explore the world."
+  },
+  {
+    "WordName": "Xenial",
+    "WordMeaning": "Hospitable, especially to visiting strangers or foreigners."
+  },
+  {
+    "WordName": "Yonder",
+    "WordMeaning": "At some distance in the direction indicated; over there."
+  },
+  {
+    "WordName": "Zephyr",
+    "WordMeaning": "A gentle, mild breeze."
+  }
+]

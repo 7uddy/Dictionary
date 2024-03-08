@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace Dictionary.MVVM.Models
 {
-    internal class Word
+    public class Word
     {
         private string WordName { get; set; }
         private string WordMeaning { get; set; }
 
+        [JsonConstructor]
         public Word(string wordName, string wordMeaning)
         {
             if (string.IsNullOrEmpty(wordName))
