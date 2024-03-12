@@ -11,5 +11,10 @@
             <Setter Property="Foreground" Value="Red"/>
             <Setter Property="FontSize" Value="30"/>
         </Style>
+        <Style TargetType="{x:Type ComboBoxItem}">
+            <Setter Property="HorizontalContentAlignment" Value="Left" />
+            <Setter Property="VerticalContentAlignment" Value="Center" />
+        </Style>
+
     </Application.Resources>
 </Application>

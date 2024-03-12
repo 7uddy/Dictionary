@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dictionary.MVVM.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,33 @@ namespace Dictionary.MVVM.Views
         public DictionaryView()
         {
             InitializeComponent();
+        }
+        private void ComboBoxWords_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is ComboBox comboBox)
+            {
+                if (comboBox.Template.FindName("PART_EditableTextBox", comboBox) is TextBox textBox)
+                {
+                    textBox.TextChanged += ComboBox_TextChanged;
+                }
+            }
+        }
+
+        private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchBox.IsDropDownOpen = true;
+        }
+
+        private void SearchBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // Get the ComboBox.
+            var comboBox = sender as ComboBox;
+
+            // Get the selected item.
+            var selectedItem = comboBox.SelectedItem;
+
+            // Do something with the selected item.
+            Console.WriteLine("You selected: " + selectedItem);
         }
     }
 }

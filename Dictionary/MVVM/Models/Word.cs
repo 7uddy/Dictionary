@@ -9,7 +9,7 @@ namespace Dictionary.MVVM.Models
 {
     public class Word
     {
-        private string WordName { get; set; }
+        public string WordName { get; set; }
         private string WordMeaning { get; set; }
 
         [JsonConstructor]
@@ -32,5 +32,6 @@ namespace Dictionary.MVVM.Models
         {
             return WordName;
         }
+
     }
 }

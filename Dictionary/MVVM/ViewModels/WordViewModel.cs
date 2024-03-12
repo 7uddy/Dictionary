@@ -17,8 +17,41 @@ namespace Dictionary.MVVM.ViewModels
     public class WordViewModel : ViewModelBase
     {
         private static ObservableCollection<Word> _words;
-        private string _wordName;
-        private string _wordMeaning;
+
+        private Word _word;
+
+        public Word Word
+        {
+            get
+            {
+                if (_searchText == null)
+                {
+                    return Words.FirstOrDefault(w => w.WordName == _searchText);
+                }
+                return _word;
+            }
+
+            set
+            {
+                _word = value;
+                OnPropertyChanged(nameof(Word));
+                OnPropertyChanged(nameof(SelectedWordName)); // Update the SelectedWordName when Word changes
+            }
+        }
+
+        public string SelectedWordName
+        {
+            get
+            {
+                if (_word != null)
+                {
+                    return _word.WordName;
+                }
+                return null;
+            }
+        }
+
+
         public ObservableCollection<Word> Words
         {
             get { return _words; }
@@ -29,25 +62,21 @@ namespace Dictionary.MVVM.ViewModels
             }
         }
 
-        public string WordName
-        {
-            get => _wordName;
-            set
+        public ObservableCollection<Word> FilteredWords {
+        
+            get
             {
-                _wordName = value;
-                OnPropertyChanged(nameof(WordName));
+                if (string.IsNullOrEmpty(_searchText))
+                {
+                    return _words;
+                }
+                else
+                {
+                    return new ObservableCollection<Word>(_words.Where(x => x.WordName.ToLower().Contains(_searchText.ToLower())));
+                }
             }
         }
 
-        public string WordMeaning
-        {
-            get => _wordMeaning;
-            set
-            {
-                _wordMeaning = value;
-                OnPropertyChanged(nameof(WordMeaning));
-            }
-        }
         public ICommand NavigateToAdmin { get; }
 
         public WordViewModel(Navigation navigateCommand,Func<AdminViewModel> createAdminViewModel)
@@ -74,6 +103,21 @@ namespace Dictionary.MVVM.ViewModels
                 Console.WriteLine("File does not exist.");
             }
         }
+        public string _searchText;
+        public string SearchText
+        {
+            get => _searchText;
+            set
+            {
+                _searchText = value;
+                OnPropertyChanged(nameof(SearchText));
+                OnPropertyChanged(nameof(FilteredWords)); // Update the FilteredWords when SearchText changes
+            }
+        }
+
+       
+            
+
     }
 }
 

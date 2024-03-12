@@ -16,6 +16,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0">
@@ -30,16 +31,21 @@
                        HorizontalAlignment="Left"
                        Margin="0 0 20 0"/>
                 <ComboBox Grid.Column="1"
-                          Width="200" 
-                          IsEditable="True" 
-                          ItemsSource="{Binding Words}" 
-                          IsTextSearchEnabled="True" 
-                          HorizontalAlignment="Center"
-                          VerticalAlignment="Center"/>
-
-
+                  Name="SearchBox"
+                  Width="200" 
+                  IsEditable="True" 
+                  ItemsSource="{Binding FilteredWords}" 
+                  IsTextSearchEnabled="False" 
+                  Loaded="ComboBoxWords_Loaded"
+                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  SelectionChanged="SearchBox_SelectionChanged"
+                  SelectedItem="{Binding Word}">
+                </ComboBox>
 
             </Grid>
+        
         </Grid>
 
         <Grid Grid.Column="0" VerticalAlignment="Center">
