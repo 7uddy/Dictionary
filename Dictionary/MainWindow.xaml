@@ -7,7 +7,7 @@
         xmlns:vms="clr-namespace:Dictionary.MVVM.ViewModels"
         mc:Ignorable="d"
         Title="Dictionary" 
-        Height="650" Width="1100"
+        Height="650" Width="1200"
         FontSize="14"
         MinWidth="900"
         MinHeight="550"
