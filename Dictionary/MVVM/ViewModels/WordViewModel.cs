@@ -36,6 +36,8 @@ namespace Dictionary.MVVM.ViewModels
                 _word = value;
                 OnPropertyChanged(nameof(Word));
                 OnPropertyChanged(nameof(SelectedWordName)); // Update the SelectedWordName when Word changes
+                OnPropertyChanged(nameof(SelectedWordMeaning)); // Update the SelectedWordName when Word changes
+                OnPropertyChanged(nameof(SelectedWordImagePath)); // Update the SelectedWordName when Word changes
             }
         }
 
@@ -46,6 +48,33 @@ namespace Dictionary.MVVM.ViewModels
                 if (_word != null)
                 {
                     return _word.WordName;
+                }
+                return null;
+            }
+        }
+
+        public string SelectedWordMeaning
+        {
+            get
+            {
+                if (_word != null)
+                {
+                    return _word.WordMeaning;
+                }
+                return null;
+            }
+        }
+        public string SelectedWordImagePath
+        {
+            get
+            {
+                if (_word != null)
+                {
+                    if(_word.ImagePath != null)
+                    {
+                        return Word.ImagePath;
+                    }
+                    else return "/Dictionary;component/Resources/NotAImage.png";
                 }
                 return null;
             }

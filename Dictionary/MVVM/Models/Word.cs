@@ -9,11 +9,37 @@ namespace Dictionary.MVVM.Models
 {
     public class Word
     {
-        public string WordName { get; set; }
-        private string WordMeaning { get; set; }
+        private string _wordName { get; set; }
+
+        public string WordName
+        {
+            get => _wordName;
+            set
+            {
+                _wordName = value;
+            }
+        }
+        private string _wordMeaning { get; set; }
+        public string WordMeaning
+        {
+            get => _wordMeaning;
+            set
+            {
+                _wordMeaning = value;
+            }
+        }
+        private string _imagePath { get; set; }
+        public string ImagePath
+        {
+            get => _imagePath;
+            set
+            {
+                _imagePath = value;
+            }
+        }
 
         [JsonConstructor]
-        public Word(string wordName, string wordMeaning)
+        public Word(string wordName, string wordMeaning,string imagePath)
         {
             if (string.IsNullOrEmpty(wordName))
             {
@@ -25,12 +51,13 @@ namespace Dictionary.MVVM.Models
                 throw new ArgumentException($"'{nameof(wordMeaning)}' cannot be null or empty.", nameof(wordMeaning));
             }
 
-            WordName = wordName;
-            WordMeaning = wordMeaning;
+            _wordName = wordName;
+            _wordMeaning = wordMeaning;
+            _imagePath = imagePath;
         }
         public override string ToString()
         {
-            return WordName;
+            return _wordName;
         }
 
     }

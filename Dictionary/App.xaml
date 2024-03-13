@@ -9,7 +9,7 @@
 
         <Style TargetType="TextBlock" x:Key="Header">
             <Setter Property="Foreground" Value="Red"/>
-            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontSize" Value="40"/>
         </Style>
         <Style TargetType="{x:Type ComboBoxItem}">
             <Setter Property="HorizontalContentAlignment" Value="Left" />
