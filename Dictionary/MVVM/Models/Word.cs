@@ -7,6 +7,16 @@ using System.Threading.Tasks;
 
 namespace Dictionary.MVVM.Models
 {
+    public enum Category
+    {
+        All,
+        Noun,
+        Verb,
+        Adjective,
+        Adverb,
+        Pronoun,
+        Interjection,
+    }
     public class Word
     {
         private string _wordName { get; set; }
@@ -28,6 +38,15 @@ namespace Dictionary.MVVM.Models
                 _wordMeaning = value;
             }
         }
+        private Category _category { get; set; }
+        public Category GetCategory
+        {
+            get => _category;
+            set
+            {
+                _category = value;
+            }
+        }
         private string _imagePath { get; set; }
         public string ImagePath
         {
@@ -39,7 +58,7 @@ namespace Dictionary.MVVM.Models
         }
 
         [JsonConstructor]
-        public Word(string wordName, string wordMeaning,string imagePath)
+        public Word(string wordName, string wordMeaning,string imagePath,string category)
         {
             if (string.IsNullOrEmpty(wordName))
             {
@@ -54,6 +73,7 @@ namespace Dictionary.MVVM.Models
             _wordName = wordName;
             _wordMeaning = wordMeaning;
             _imagePath = imagePath;
+            _category = (Category)Enum.Parse(typeof(Category), category);
         }
         public override string ToString()
         {

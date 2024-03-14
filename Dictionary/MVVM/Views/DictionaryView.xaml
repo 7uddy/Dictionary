@@ -22,6 +22,7 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
                 <TextBlock Grid.Column="0" 
@@ -41,6 +42,17 @@
                   VerticalAlignment="Center"
                   SelectionChanged="SearchBox_SelectionChanged"
                   SelectedItem="{Binding Word}">
+                </ComboBox>
+                
+                <ComboBox Grid.Column="2"
+                          Name="CategoryBox"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Width="200"
+                          ItemsSource="{Binding AllCategories}"
+                          SelectedItem="{Binding Word.GetCategory}"
+                          >
+                    
                 </ComboBox>
 
             </Grid>

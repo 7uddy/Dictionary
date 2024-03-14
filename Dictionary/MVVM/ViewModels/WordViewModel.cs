@@ -70,7 +70,7 @@ namespace Dictionary.MVVM.ViewModels
             {
                 if (_word != null)
                 {
-                    if(_word.ImagePath != null)
+                    if (_word.ImagePath != null)
                     {
                         return Word.ImagePath;
                     }
@@ -91,8 +91,9 @@ namespace Dictionary.MVVM.ViewModels
             }
         }
 
-        public ObservableCollection<Word> FilteredWords {
-        
+        public ObservableCollection<Word> FilteredWords
+        {
+
             get
             {
                 if (string.IsNullOrEmpty(_searchText))
@@ -108,9 +109,9 @@ namespace Dictionary.MVVM.ViewModels
 
         public ICommand NavigateToAdmin { get; }
 
-        public WordViewModel(Navigation navigateCommand,Func<AdminViewModel> createAdminViewModel)
+        public WordViewModel(Navigation navigateCommand, Func<AdminViewModel> createAdminViewModel)
         {
-            if(_words == null)
+            if (_words == null)
             {
                 _words = new ObservableCollection<Word>();
                 ReadWordJson();
@@ -141,12 +142,31 @@ namespace Dictionary.MVVM.ViewModels
                 _searchText = value;
                 OnPropertyChanged(nameof(SearchText));
                 OnPropertyChanged(nameof(FilteredWords)); // Update the FilteredWords when SearchText changes
+                OnPropertyChanged(nameof(AllCategories)); // Update the FilteredWords when SearchText changes
             }
         }
+        private ObservableCollection<Category> _allCategories;
+        public ObservableCollection<Category> AllCategories
+        {
+            get
+            {
+                _allCategories = new ObservableCollection<Category>();
+                if(_searchText==null || _searchText=="")
+                {
+                    _allCategories.Add(Category.All);
+                }
+                foreach (Word word in FilteredWords)
+                {
+                    if (!_allCategories.Contains(word.GetCategory))
+                        _allCategories.Add(word.GetCategory);
+                }
+                return _allCategories;
+            }
 
-       
-            
 
+
+
+        }
     }
 }
 
