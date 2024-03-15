@@ -35,9 +35,10 @@ namespace Dictionary.MVVM.ViewModels
             {
                 _word = value;
                 OnPropertyChanged(nameof(Word));
-                OnPropertyChanged(nameof(SelectedWordName)); // Update the SelectedWordName when Word changes
-                OnPropertyChanged(nameof(SelectedWordMeaning)); // Update the SelectedWordName when Word changes
-                OnPropertyChanged(nameof(SelectedWordImagePath)); // Update the SelectedWordName when Word changes
+                OnPropertyChanged(nameof(SelectedWordName)); 
+                OnPropertyChanged(nameof(SelectedWordMeaning)); 
+                OnPropertyChanged(nameof(SelectedWordImagePath)); 
+                OnPropertyChanged(nameof(SelectedCategory)); 
             }
         }
 
@@ -90,7 +91,7 @@ namespace Dictionary.MVVM.ViewModels
                 OnPropertyChanged(nameof(Words));
             }
         }
-
+        private ObservableCollection<Word> _filteredWords;
         public ObservableCollection<Word> FilteredWords
         {
 
@@ -98,12 +99,24 @@ namespace Dictionary.MVVM.ViewModels
             {
                 if (string.IsNullOrEmpty(_searchText))
                 {
-                    return _words;
+                    if(_selectedCategory==Category.All)_filteredWords= _words;
+                    else
+                    {
+                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.GetCategory == _selectedCategory));
+                    }
                 }
                 else
                 {
-                    return new ObservableCollection<Word>(_words.Where(x => x.WordName.ToLower().Contains(_searchText.ToLower())));
+                    if (_selectedCategory == Category.All)
+                    {
+                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.WordName.ToLower().Contains(_searchText.ToLower())));
+                    }
+                    else
+                    {
+                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.WordName.ToLower().Contains(_searchText.ToLower()) && x.GetCategory == _selectedCategory));
+                    }
                 }
+                return _filteredWords;
             }
         }
 
@@ -140,9 +153,9 @@ namespace Dictionary.MVVM.ViewModels
             set
             {
                 _searchText = value;
+                _word = null;
                 OnPropertyChanged(nameof(SearchText));
-                OnPropertyChanged(nameof(FilteredWords)); // Update the FilteredWords when SearchText changes
-                OnPropertyChanged(nameof(AllCategories)); // Update the FilteredWords when SearchText changes
+                OnPropertyChanged(nameof(FilteredWords)); 
             }
         }
         private ObservableCollection<Category> _allCategories;
@@ -150,22 +163,40 @@ namespace Dictionary.MVVM.ViewModels
         {
             get
             {
-                _allCategories = new ObservableCollection<Category>();
-                if(_searchText==null || _searchText=="")
-                {
-                    _allCategories.Add(Category.All);
-                }
-                foreach (Word word in FilteredWords)
-                {
-                    if (!_allCategories.Contains(word.GetCategory))
-                        _allCategories.Add(word.GetCategory);
-                }
+                _allCategories = new ObservableCollection<Category> { 
+                Category.All,
+                Category.Noun,
+                Category.Verb,
+                Category.Adjective,
+                Category.Adverb,
+                Category.Pronoun,
+                Category.Interjection
+                };
+                
                 return _allCategories;
             }
-
-
-
-
+        }
+        private Category _selectedCategory;
+        public Category SelectedCategory
+        {
+            get
+            {
+                if(_word==null)
+                {
+                    return _selectedCategory;
+                }
+                else
+                {
+                    return _word.GetCategory;
+                }
+            }
+            set
+            {
+                _selectedCategory = value;
+                _word = null;
+                OnPropertyChanged(nameof(SelectedCategory));
+                OnPropertyChanged(nameof(FilteredWords));  
+            }
         }
     }
 }

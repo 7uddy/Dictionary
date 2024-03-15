@@ -50,7 +50,7 @@
                           VerticalAlignment="Center"
                           Width="200"
                           ItemsSource="{Binding AllCategories}"
-                          SelectedItem="{Binding Word.GetCategory}"
+                          SelectedItem="{Binding SelectedCategory}"
                           >
                     
                 </ComboBox>
