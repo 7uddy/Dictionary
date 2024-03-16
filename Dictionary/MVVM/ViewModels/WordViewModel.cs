@@ -82,13 +82,12 @@ namespace Dictionary.MVVM.ViewModels
         }
 
 
-        public ObservableCollection<Word> Words
+        public static ObservableCollection<Word> Words
         {
             get { return _words; }
             set
             {
                 _words = value;
-                OnPropertyChanged(nameof(Words));
             }
         }
         private ObservableCollection<Word> _filteredWords;

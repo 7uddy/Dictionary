@@ -18,7 +18,7 @@ namespace Dictionary
     public partial class App : Application
     {
         private readonly Navigation _navigation = new Navigation();
-        private User _user;
+        public static User _user;
         protected override void OnStartup(StartupEventArgs e)
         {
             _navigation.CurrentViewModel = CreateWordViewModel();
@@ -50,7 +50,7 @@ namespace Dictionary
         }
         private AddWordViewModel CreateAddWordViewModel()
         {
-            return new AddWordViewModel();
+            return new AddWordViewModel(_navigation, CreateAdminControlViewModel, CreateWordViewModel, CreateGameViewModel);
         }
         private ModifyWordViewModel CreateModifyWordViewModel()
         {

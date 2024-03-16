@@ -7,20 +7,105 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
-                        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Text="Word" Grid.Row="0" Grid.Column="0" Margin="5"/>
-        <TextBox Text="{Binding Word}" Grid.Row="0" Grid.Column="1" Margin="5"/>
-        <TextBlock Text="Description" Grid.Row="1" Grid.Column="0" Margin="5"/>
-        <TextBox Text="{Binding Description}" Grid.Row="1" Grid.Column="1" Margin="5"/>
-        <Button Content="Save" Command="{Binding SaveCommand}" Grid.Row="2" Grid.Column="1" Margin="5"/>
-            
+
+        <Grid Grid.Column="1" Margin="0 30 0 0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <!-- Corrected line -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="Add Word Name" 
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <TextBox Text="{Binding AddWordName, UpdateSourceTrigger=PropertyChanged}" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center"
+                         Width="200"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Label Content="Add Word Description" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBox Text="{Binding AddWordMeaning, UpdateSourceTrigger=PropertyChanged}" 
+                         HorizontalAlignment="Center" 
+                         VerticalAlignment="Center"
+                         Width="200"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Label Content="Add Word Category" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"
+                       FontSize="20"/>
+            </Grid>
+            <Grid Grid.Row="5">
+                <ComboBox Grid.Column="2"
+                          Name="CategoryBox"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Width="200"
+                          ItemsSource="{Binding AllCategories}"
+                          SelectedItem="{Binding Category}"/>
+            </Grid>
+            <Grid Grid.Row="6" Margin="0 20 0 0">
+                <Button Content="Add Image" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Width="200"
+                        Command="{Binding AddImage}"/>
+            </Grid>
+
+            <Grid Grid.Row="7" Margin="0 20 0 0">
+                <Button Content="Create Word" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Width="200"
+                        Command="{Binding CreateWord}"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Content="Admin" 
+                        VerticalAlignment="Bottom"
+                        Height="40"
+                        Command="{Binding NavigateToAdminControl}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Content="Dictionary" 
+                        VerticalAlignment="Center"
+                        Height="40"
+                        Command="{Binding NavigateToDictionary}"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Content="Game" 
+                        VerticalAlignment="Top"
+                        Height="40"
+                        Command="{Binding NavigateToGame}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

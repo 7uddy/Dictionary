@@ -23,6 +23,7 @@ namespace Dictionary.Commands
             User user = new User(_userViewModel.Username, _userViewModel.Password);
             if (users.Contains(user))
             {
+                App._user = user;
                 Console.WriteLine("Login successful");
                 _userViewModel.NavigateToAdminControl.Execute(null);
             }
