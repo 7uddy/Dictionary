@@ -7,6 +7,68 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Content="Admin" 
+    VerticalAlignment="Bottom"
+    Height="40"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Content="Dictionary" 
+    VerticalAlignment="Center"
+    Height="40"
+    Command="{Binding NavigateToDictionary}"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Content="Game" 
+    VerticalAlignment="Top"
+    Height="40"
+    Command="{Binding NavigateToGame}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <TextBlock Text="Delete Word"
+                            FontSize="30"
+                            FontWeight="Bold"
+                            HorizontalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ComboBox Grid.Column="1"
+                  Name="SearchBox"
+                  Width="200" 
+                  IsEditable="True" 
+                  ItemsSource="{Binding FilteredWords}" 
+                  IsTextSearchEnabled="False" 
+                  Loaded="ComboBoxWords_Loaded"
+                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  SelectionChanged="SearchBox_SelectionChanged"
+                  SelectedItem="{Binding Word}">
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Content="Delete"
+                        VerticalAlignment="Center"
+                        Height="40"
+                        Command="{Binding DeleteWordCommand}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

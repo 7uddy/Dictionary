@@ -24,5 +24,25 @@ namespace Dictionary.MVVM.Views.AdminViews
         {
             InitializeComponent();
         }
+        private void ComboBoxWords_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (sender is ComboBox comboBox)
+            {
+                if (comboBox.Template.FindName("PART_EditableTextBox", comboBox) is TextBox textBox)
+                {
+                    textBox.TextChanged += ComboBox_TextChanged;
+                }
+            }
+        }
+
+        private void ComboBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            SearchBox.IsDropDownOpen = true;
+        }
+
+        private void SearchBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
