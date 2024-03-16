@@ -76,7 +76,23 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVVM\Views\AdminView.xaml">
+    <Page Include="MVVM\Views\AdminViews\AddWordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\AdminViews\AdminControlView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\AdminViews\AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\AdminViews\DeleteWordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\Views\AdminViews\ModifyWordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,19 +100,43 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\Views\GameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MVVM\Models\User.cs" />
     <Compile Include="MVVM\Models\Word.cs" />
+    <Compile Include="MVVM\ViewModels\AdminViewModels\AddWordViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\AdminViewModels\AdminControlViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\AdminViewModels\DeleteWordViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\AdminViewModels\ModifyWordViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\GameViewModel.cs" />
     <Compile Include="MVVM\ViewModels\MainViewModel.cs" />
-    <Compile Include="MVVM\ViewModels\AdminViewModel.cs" />
+    <Compile Include="MVVM\ViewModels\AdminViewModels\AdminViewModel.cs" />
     <Compile Include="MVVM\ViewModels\ViewModelBase.cs" />
     <Compile Include="MVVM\ViewModels\WordViewModel.cs" />
-    <Compile Include="MVVM\Views\AdminView.xaml.cs">
+    <Compile Include="MVVM\Views\AdminViews\AddWordView.xaml.cs">
+      <DependentUpon>AddWordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\AdminViews\AdminControlView.xaml.cs">
+      <DependentUpon>AdminControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\AdminViews\AdminView.xaml.cs">
       <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\AdminViews\DeleteWordView.xaml.cs">
+      <DependentUpon>DeleteWordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\AdminViews\ModifyWordView.xaml.cs">
+      <DependentUpon>ModifyWordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\Views\DictionaryView.xaml.cs">
       <DependentUpon>DictionaryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Views\GameView.xaml.cs">
+      <DependentUpon>GameView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Stores\Navigation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

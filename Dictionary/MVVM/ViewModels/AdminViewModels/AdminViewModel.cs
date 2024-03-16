@@ -37,10 +37,15 @@ namespace Dictionary.MVVM.ViewModels
  //     public ICommand RegisterCommand { get; set; }
         
         public ICommand NavigateToDictionary { get; }
-        public AdminViewModel(User user,Navigation navigateCommand,Func<WordViewModel> createWordViewModel)
+        public ICommand NavigateToGame { get; }
+        public ICommand NavigateToAdminControl { get; }
+        public AdminViewModel(User user,Navigation navigateCommand,Func<WordViewModel> createWordViewModel,Func<GameViewModel> createGameViewModel,Func<AdminControlViewModel> createAdminControlViewModel)
         {
             LoginCommand = new LoginCommand(this);
             NavigateToDictionary = new NavigateCommand(navigateCommand,createWordViewModel);
+            NavigateToGame = new NavigateCommand(navigateCommand,createGameViewModel);
+            NavigateToAdminControl = new NavigateCommand(navigateCommand,createAdminControlViewModel);
+
         }
     }
 }

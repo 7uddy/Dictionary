@@ -122,7 +122,8 @@
             <Grid Grid.Row="2">
                 <Button Content="Game" 
             VerticalAlignment="Top"
-            Height="40"/>
+            Height="40"
+            Command="{Binding NavigateToGame}"/>
             </Grid>
         </Grid>
     </Grid>

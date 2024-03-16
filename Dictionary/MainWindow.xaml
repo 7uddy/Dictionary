@@ -3,8 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Dictionary" xmlns:views="clr-namespace:Dictionary.MVVM.Views"
-        xmlns:vms="clr-namespace:Dictionary.MVVM.ViewModels"
+        xmlns:local="clr-namespace:Dictionary" 
+        xmlns:view="clr-namespace:Dictionary.MVVM.Views"
+        xmlns:vm="clr-namespace:Dictionary.MVVM.ViewModels"
+        xmlns:adminViewModel="clr-namespace:Dictionary.MVVM.ViewModels.AdminViewModels"
+        xmlns:adminView="clr-namespace:Dictionary.MVVM.Views.AdminViews"
         mc:Ignorable="d"
         Title="Dictionary" 
         Height="650" Width="1200"
@@ -18,14 +21,29 @@
         >
     <Grid MinWidth="800">
         <Grid.Resources>
-            <DataTemplate DataType="{x:Type vms:WordViewModel}">
-                <views:DictionaryView/>
+            <DataTemplate DataType="{x:Type vm:WordViewModel}">
+                <view:DictionaryView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vms:AdminViewModel}">
-                <views:AdminView/>
+            <DataTemplate DataType="{x:Type vm:AdminViewModel}">
+                <view:AdminView/>
             </DataTemplate>
-            
+            <DataTemplate DataType="{x:Type vm:GameViewModel}">
+                <view:GameView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:AdminControlViewModel}">
+                <view:AdminControlView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type adminViewModel:AddWordViewModel}">
+                <adminView:AddWordView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type adminViewModel:ModifyWordViewModel}">
+                <adminView:ModifyWordView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type adminViewModel:DeleteWordViewModel}">
+                <adminView:DeleteWordView/>
+            </DataTemplate>
+
         </Grid.Resources>
         <ContentControl Content="{Binding CurrentViewModel}"/>
     </Grid>

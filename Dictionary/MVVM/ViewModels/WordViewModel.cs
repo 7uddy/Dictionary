@@ -121,8 +121,9 @@ namespace Dictionary.MVVM.ViewModels
         }
 
         public ICommand NavigateToAdmin { get; }
+        public ICommand NavigateToGame { get; }
 
-        public WordViewModel(Navigation navigateCommand, Func<AdminViewModel> createAdminViewModel)
+        public WordViewModel(Navigation navigateCommand, Func<AdminViewModel> createAdminViewModel,Func<GameViewModel> createGameViewModel)
         {
             if (_words == null)
             {
@@ -130,6 +131,7 @@ namespace Dictionary.MVVM.ViewModels
                 ReadWordJson();
             }
             NavigateToAdmin = new NavigateCommand(navigateCommand, createAdminViewModel);
+            NavigateToGame = new NavigateCommand(navigateCommand, createGameViewModel);
 
         }
 

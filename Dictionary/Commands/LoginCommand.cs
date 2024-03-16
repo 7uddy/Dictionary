@@ -24,6 +24,7 @@ namespace Dictionary.Commands
             if (users.Contains(user))
             {
                 Console.WriteLine("Login successful");
+                _userViewModel.NavigateToAdminControl.Execute(null);
             }
             else
             {
