@@ -3,10 +3,123 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Dictionary.MVVM.Views.AdminViews"
+             xmlns:local="clr-namespace:Dictionary.MVVM.Views.AdminViews" xmlns:adminviewmodels="clr-namespace:Dictionary.MVVM.ViewModels.AdminViewModels" d:DataContext="{d:DesignInstance Type=adminviewmodels:ModifyWordViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="Select Word:"
+                       FontSize="20"
+                       FontWeight="DemiBold"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <ComboBox Grid.Column="1"
+              Name="SearchBox"
+              Width="200" 
+              IsEditable="True" 
+              ItemsSource="{Binding FilteredWords}" 
+              IsTextSearchEnabled="False" 
+              Loaded="ComboBoxWords_Loaded"
+              Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"
+              SelectedItem="{Binding Word}">
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Label Content="Word Name:"
+                          FontSize="20"
+                          FontWeight="DemiBold"/>
+            </Grid>
+            <Grid Grid.Row="3">
+                <TextBox Grid.Column="1"
+              Name="WordName"
+              Width="200" 
+              Text="{Binding Word.WordName, UpdateSourceTrigger=PropertyChanged}"
+              HorizontalAlignment="Center"
+              VerticalAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row="4">
+                <Label Content="Word Meaning:"
+              FontSize="20"
+              FontWeight="DemiBold"/>
+            </Grid>
+            <Grid Grid.Row="5">
+                <TextBox Grid.Column="1"
+             Name="WordMeaning"
+             Width="200" 
+             Height="70"
+             Text="{Binding Word.WordMeaning, UpdateSourceTrigger=PropertyChanged}"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center"
+             TextWrapping="Wrap"/>
+            </Grid>
+
+            <Grid Grid.Row="6">
+                <Label Content="Word Category:"
+              FontSize="20"
+              FontWeight="DemiBold"/>
+            </Grid>
+            <Grid Grid.Row="7">
+                <ComboBox Grid.Column="2"
+                  Name="CategoryBox"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Width="200"
+                  ItemsSource="{Binding AllCategories}"
+                  SelectedItem="{Binding Word.GetCategory}"
+                  >
+
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="8" Margin="0 20 0 0">
+                <Button Content="Modify Word"
+              Command="{Binding ModifyWordCommand}"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Width="100"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Button Content="Admin" 
+        VerticalAlignment="Bottom"
+        Height="40"
+        Command="{Binding NavigateToAdminControl}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Content="Dictionary" 
+    VerticalAlignment="Center"
+    Height="40"
+     Command="{Binding NavigateToDictionary}"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Content="Game" 
+    VerticalAlignment="Top"
+    Height="40"
+    Command="{Binding NavigateToGame}"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

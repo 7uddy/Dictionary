@@ -40,17 +40,5 @@ namespace Dictionary.MVVM.Views
         {
             SearchBox.IsDropDownOpen = true;
         }
-
-        private void SearchBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            // Get the ComboBox.
-            var comboBox = sender as ComboBox;
-
-            // Get the selected item.
-            var selectedItem = comboBox.SelectedItem;
-
-            // Do something with the selected item.
-            Console.WriteLine("You selected: " + selectedItem);
-        }
     }
 }

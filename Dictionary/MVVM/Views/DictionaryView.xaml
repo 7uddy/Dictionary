@@ -40,7 +40,6 @@
                   Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
                   HorizontalAlignment="Center"
                   VerticalAlignment="Center"
-                  SelectionChanged="SearchBox_SelectionChanged"
                   SelectedItem="{Binding Word}">
                 </ComboBox>
                 

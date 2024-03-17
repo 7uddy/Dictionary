@@ -54,7 +54,7 @@ namespace Dictionary
         }
         private ModifyWordViewModel CreateModifyWordViewModel()
         {
-            return new ModifyWordViewModel();
+            return new ModifyWordViewModel(_navigation, CreateAdminControlViewModel, CreateWordViewModel, CreateGameViewModel);
         }
         private DeleteWordViewModel CreateDeleteWordViewModel()
         {
