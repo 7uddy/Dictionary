@@ -51,7 +51,7 @@
                 <TextBox Grid.Column="1"
               Name="WordName"
               Width="200" 
-              Text="{Binding Word.WordName, UpdateSourceTrigger=PropertyChanged}"
+              Text="{Binding NewWordName, UpdateSourceTrigger=PropertyChanged}"
               HorizontalAlignment="Center"
               VerticalAlignment="Center"/>
             </Grid>
@@ -65,7 +65,7 @@
              Name="WordMeaning"
              Width="200" 
              Height="70"
-             Text="{Binding Word.WordMeaning, UpdateSourceTrigger=PropertyChanged}"
+             Text="{Binding NewWordMeaning, UpdateSourceTrigger=PropertyChanged}"
              HorizontalAlignment="Center"
              VerticalAlignment="Center"
              TextWrapping="Wrap"/>
@@ -83,7 +83,7 @@
                   VerticalAlignment="Center"
                   Width="200"
                   ItemsSource="{Binding AllCategories}"
-                  SelectedItem="{Binding Word.GetCategory}"
+                  SelectedItem="{Binding SelectedCategory}"
                   >
 
                 </ComboBox>

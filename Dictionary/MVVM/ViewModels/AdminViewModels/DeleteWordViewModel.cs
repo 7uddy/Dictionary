@@ -56,7 +56,6 @@ namespace Dictionary.MVVM.ViewModels.AdminViewModels
             set
             {
                 _searchText = value;
-                _word = null;
                 OnPropertyChanged(nameof(SearchText));
                 OnPropertyChanged(nameof(FilteredWords));
             }

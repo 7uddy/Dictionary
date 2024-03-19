@@ -3,22 +3,100 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Dictionary.MVVM.Views"
+             xmlns:local="clr-namespace:Dictionary.MVVM.Views" xmlns:viewmodels="clr-namespace:Dictionary.MVVM.ViewModels" xmlns:local1="clr-namespace:Dictionary" d:DataContext="{d:DesignInstance Type=viewmodels:GameViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local1:StringToImageConverter x:Key="StringToImage"/>
+    </UserControl.Resources>
     <Grid>
-            
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button Grid.Column="0" Grid.Row="0" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
-        <Button Grid.Column="1" Grid.Row="0" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
-        <Button Grid.Column="0" Grid.Row="1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
-        <Button Grid.Column="1" Grid.Row="1" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75"/>
+        <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Label Content="{Binding Meaning}"
+                   FontSize="20"
+                   FontWeight="DemiBold"
+                   Visibility="{Binding IsImageShown}"/>
+                <Image                        
+                   Source="{Binding ImagePath, Converter={StaticResource StringToImage}, UpdateSourceTrigger=PropertyChanged}"
+                   Height="200"
+                   Width="200"
+                   Visibility="{Binding IsScoreViewOff}"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0 20 0 0">
+                <ComboBox Grid.Column="1"
+                  Name="SearchBox"
+                  Width="200" 
+                  IsEditable="True" 
+                  ItemsSource="{Binding FilteredWords}" 
+                  IsTextSearchEnabled="False" 
+                  Loaded="ComboBoxWords_Loaded"
+                  Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  Visibility="{Binding IsScoreViewOff}"
+                  SelectedItem="{Binding Word}">
+                </ComboBox>
+            </Grid>
+            <Grid Grid.Row="2" Margin="0 20 0 0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="1">
+                        <Button Content="{Binding NextOrFinish}" 
+                        Height="40"
+                        Width="50"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Visibility="{Binding IsScoreViewOff}"
+                        Command="{Binding NextWord}"/>
+                   </Grid>
+                <Grid Grid.Column="0" Margin="0 0 100 0">
+                    <Button Content="Previous" 
+                     Height="40"
+                     HorizontalAlignment="Left"
+                     VerticalAlignment="Center"
+                     IsEnabled="{Binding IsButtonEnabled}"
+                     Visibility="{Binding IsScoreViewOff}"
+                     Command="{Binding PreviousWord}"/>
+                </Grid>
+            </Grid>
+        </Grid>
+        
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <Button Content="Admin" 
+                VerticalAlignment="Bottom"
+                Height="40"
+                Command="{Binding NavigateToAdmin}"/>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button Content="Dictionary" 
+                VerticalAlignment="Center"
+                Height="40"
+                Command="{Binding NavigateToDictionary}"/>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Button Content="Game" 
+                VerticalAlignment="Top"
+                Height="40"/>
+            </Grid>
+        </Grid>
     </Grid>
 </UserControl>

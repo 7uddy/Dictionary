@@ -3,9 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Dictionary.MVVM.Views" xmlns:viewmodels="clr-namespace:Dictionary.MVVM.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:WordViewModel}"
+             xmlns:local="clr-namespace:Dictionary.MVVM.Views" xmlns:viewmodels="clr-namespace:Dictionary.MVVM.ViewModels" xmlns:local1="clr-namespace:Dictionary" d:DataContext="{d:DesignInstance Type=viewmodels:WordViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <local1:StringToImageConverter x:Key="StringToImage"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -88,8 +91,8 @@
                     </Grid>
                 </Grid>
                 <Grid Grid.Column="1">
-                    <Image Source="{Binding SelectedWordImagePath,TargetNullValue={x:Null}}"
-                           MaxWidth="300"
+                    <Image MaxWidth="300"
+                           Source="{Binding SelectedWordImagePath, Converter={StaticResource StringToImage}, UpdateSourceTrigger=PropertyChanged}"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"/>
 

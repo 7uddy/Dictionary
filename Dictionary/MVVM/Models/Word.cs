@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Dictionary.MVVM.Models
@@ -39,7 +41,7 @@ namespace Dictionary.MVVM.Models
             }
         }
         private Category _category { get; set; }
-        public Category GetCategory
+        public Category Category
         {
             get => _category;
             set
@@ -58,7 +60,7 @@ namespace Dictionary.MVVM.Models
         }
 
         [JsonConstructor]
-        public Word(string wordName, string wordMeaning,string imagePath,string category)
+        public Word(string wordName, string wordMeaning, string imagePath, string category)
         {
             if (string.IsNullOrEmpty(wordName))
             {
@@ -79,6 +81,13 @@ namespace Dictionary.MVVM.Models
         {
             return _wordName;
         }
+        static public bool ContainsOnlyLetters(string input)
+        {
+            // Regular expression pattern to match only letters
+            Regex regex = new Regex("^[a-zA-Z]+$");
 
+            // Match the pattern against the input string
+            return regex.IsMatch(input);
+        }
     }
 }

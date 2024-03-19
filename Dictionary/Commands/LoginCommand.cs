@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using Dictionary.Models;
 using Dictionary.MVVM.ViewModels;
 using Newtonsoft.Json;
@@ -30,6 +31,7 @@ namespace Dictionary.Commands
             else
             {
                 Console.WriteLine("Login failed");
+                MessageBox.Show("Login failed");
             }
         }
 

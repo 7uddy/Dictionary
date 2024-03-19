@@ -11,6 +11,7 @@ using System.Windows;
 using Microsoft.Win32;
 using GalaSoft.MvvmLight.Command;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace Dictionary.MVVM.ViewModels.AdminViewModels
 {
@@ -63,10 +64,25 @@ namespace Dictionary.MVVM.ViewModels.AdminViewModels
 
         private void SubmitWord()
         {
+            if(string.IsNullOrEmpty(_addWordName) || string.IsNullOrEmpty(_addWordMeaning) || string.IsNullOrEmpty(_category))
+            {
+                MessageBox.Show("Please fill all the fields");
+                return;
+            }
+            if(WordViewModel.Words.Any(w=>w.WordName==_addWordName))
+            {
+                MessageBox.Show("Word already exists");
+                return;
+            }
+            if (!Word.ContainsOnlyLetters(_addWordName))
+            {
+                MessageBox.Show("Word name should contain only letters");
+                return;
+            }
            _newWord = new Word(_addWordName,_addWordMeaning,_selectedImagePath,_category);
             WordViewModel.Words.Add(_newWord);
-            string json= Newtonsoft.Json.JsonConvert.SerializeObject(_newWord);
-            File.AppendAllText("words.json",json);
+            string json = Newtonsoft.Json.JsonConvert.SerializeObject(_newWord);
+            File.AppendAllText("words.json", json);
             NavigateToAdminControl.Execute(null);
         }
 
@@ -100,7 +116,7 @@ namespace Dictionary.MVVM.ViewModels.AdminViewModels
                 // Copy the selected file to the target path
                 File.Copy(selectedFileName, destFile, true);
 
-                string relativeFilePath = $"/Dictionary;component/Resources/{fileName}";
+                string relativeFilePath = $"{fileName}";
                 // Now, you can use relativeFilePath as needed
                 _selectedImagePath=relativeFilePath;
             }
@@ -121,7 +137,6 @@ namespace Dictionary.MVVM.ViewModels.AdminViewModels
             get
             {
                 _allCategories = new ObservableCollection<Category> { 
-                    Models.Category.All,
                     Models.Category.Noun,
                     Models.Category.Verb,
                     Models.Category.Adjective,

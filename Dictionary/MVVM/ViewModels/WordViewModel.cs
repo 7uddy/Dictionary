@@ -75,7 +75,7 @@ namespace Dictionary.MVVM.ViewModels
                     {
                         return Word.ImagePath;
                     }
-                    else return "/Dictionary;component/Resources/NotAImage.png";
+                    else return "NotAImage.png";
                 }
                 return null;
             }
@@ -101,7 +101,7 @@ namespace Dictionary.MVVM.ViewModels
                     if(_selectedCategory==Category.All)_filteredWords= _words;
                     else
                     {
-                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.GetCategory == _selectedCategory));
+                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.Category == _selectedCategory));
                     }
                 }
                 else
@@ -112,7 +112,7 @@ namespace Dictionary.MVVM.ViewModels
                     }
                     else
                     {
-                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.WordName.ToLower().Contains(_searchText.ToLower()) && x.GetCategory == _selectedCategory));
+                        _filteredWords = new ObservableCollection<Word>(_words.Where(x => x.WordName.ToLower().Contains(_searchText.ToLower()) && x.Category == _selectedCategory));
                     }
                 }
                 return _filteredWords;
@@ -188,7 +188,7 @@ namespace Dictionary.MVVM.ViewModels
                 }
                 else
                 {
-                    return _word.GetCategory;
+                    return _word.Category;
                 }
             }
             set

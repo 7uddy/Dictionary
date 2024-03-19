@@ -12,7 +12,7 @@
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="Admin View" 
+        <TextBlock Text="Admin Panel" 
                    Grid.Column="1"
                    Style="{StaticResource Header}" 
                    HorizontalAlignment="Center" 
