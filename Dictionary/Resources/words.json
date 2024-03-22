@@ -98,7 +98,7 @@
   {
     "WordName": "Piano",
     "WordMeaning": "A musical instrument with keys that produce sound when pressed.",
-    "ImagePath": "/Dictionary;component/Resources/piano.png",
+    "ImagePath": "piano.png",
     "Category": "Noun"
   },
   {
