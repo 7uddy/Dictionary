@@ -1,9 +1,9 @@
 # Dictionary
 
 <h3>Description</h3>
-This explanatory dictionary application is developed using the C# programming language and WPF (part of the .NET framework). Its purpose is to provide users with a platform for managing and searching for words in an intuitive and efficient manner.<br><br>
+This explanatory dictionary application is developed using the C# programming language and WPF (part of the .NET framework). Its purpose is to provide users with a platform for managing and searching for words in an intuitive and efficient manner.<br>
 <h3>Modules</h3>
-The dictionary contains three main modules.<br><br>
+The dictionary contains three main modules.<br>
 
 - **Administrative Module**
   - Allows adding, modifying, and deleting words from the dictionary.
